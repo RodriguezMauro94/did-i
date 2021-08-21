@@ -35,9 +35,8 @@ abstract class DidIDatabase : RoomDatabase() {
                     "did_i_database"
                 )
                     // Wipes and rebuilds instead of migrating if no Migration object.
-                    // Migration is not part of this codelab.
                     .fallbackToDestructiveMigration()
-                    .addCallback(WordDatabaseCallback(scope))
+                    .addCallback(DidIdDatabaseCallback(scope))
                     .build()
                 INSTANCE = instance
                 // return instance
@@ -45,7 +44,7 @@ abstract class DidIDatabase : RoomDatabase() {
             }
         }
 
-        private class WordDatabaseCallback(
+        private class DidIdDatabaseCallback(
             private val scope: CoroutineScope
         ) : RoomDatabase.Callback() {
             /**
@@ -53,8 +52,6 @@ abstract class DidIDatabase : RoomDatabase() {
              */
             override fun onCreate(db: SupportSQLiteDatabase) {
                 super.onCreate(db)
-                // If you want to keep the data through app restarts,
-                // comment out the following line.
                 INSTANCE?.let { database ->
                     scope.launch(Dispatchers.IO) {
                         populateDatabase(database.wordDao())
