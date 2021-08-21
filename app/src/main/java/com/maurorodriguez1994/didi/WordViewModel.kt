@@ -7,6 +7,7 @@ import kotlinx.coroutines.launch
 
 class WordViewModel(private val repository: WordRepository) : ViewModel() {
     val allWords: LiveData<List<Word>> = repository.allWords.asLiveData()
+    val count: LiveData<Int> = repository.count.asLiveData()
 
     fun insert(word: Word) = viewModelScope.launch {
         repository.insert(word)

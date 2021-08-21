@@ -8,12 +8,13 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import com.maurorodriguez1994.didi.room.dao.QuestionDao
 import com.maurorodriguez1994.didi.room.dao.WordDao
 import com.maurorodriguez1994.didi.room.entity.Question
+import com.maurorodriguez1994.didi.room.entity.Proposition
 import com.maurorodriguez1994.didi.room.entity.Word
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-@Database(entities = [Word::class], version = 1, exportSchema = false)
+@Database(entities = [Word::class, Question::class, Proposition::class], version = 1, exportSchema = false)
 abstract class DidIDatabase : RoomDatabase() {
     abstract fun wordDao(): WordDao
     abstract fun questionDao(): QuestionDao
@@ -62,17 +63,16 @@ abstract class DidIDatabase : RoomDatabase() {
         }
 
         suspend fun populateDatabase(wordDao: WordDao) {
-            // FIXME corregir con PK
-            var word = Word("Door")
+            var word = Word(1, "Door")
             wordDao.insert(word)
 
-            word = Word("Window")
+            word = Word(2, "Window")
             wordDao.insert(word)
 
-            word = Word("Gas")
+            word = Word(3, "Gas")
             wordDao.insert(word)
 
-            word = Word("Clothes")
+            word = Word(4, "Clothes")
             wordDao.insert(word)
         }
 
