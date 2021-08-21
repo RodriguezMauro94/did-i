@@ -7,7 +7,6 @@ import kotlinx.coroutines.flow.Flow
 
 class WordRepository(private val wordDao: WordDao) {
     val allWords: Flow<List<Word>> = wordDao.getWords()
-    val count: Flow<Int> = wordDao.getCount()
 
     @Suppress("RedundantSuspendModifier")
     @WorkerThread

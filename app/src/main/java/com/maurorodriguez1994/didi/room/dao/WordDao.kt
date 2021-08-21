@@ -15,9 +15,6 @@ interface WordDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(word: Word)
 
-    @Query("SELECT COUNT(id) FROM word_table")
+    @Query("SELECT COUNT(word_id) FROM word_table")
     fun getCount(): Flow<Int>
-
-   /* @Query("DELETE FROM word_table")
-    suspend fun deleteAll()*/
 }

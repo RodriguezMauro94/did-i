@@ -5,6 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.maurorodriguez1994.didi.room.dao.PropositionDao
 import com.maurorodriguez1994.didi.room.dao.QuestionDao
 import com.maurorodriguez1994.didi.room.dao.WordDao
 import com.maurorodriguez1994.didi.room.entity.Question
@@ -18,6 +19,7 @@ import kotlinx.coroutines.launch
 abstract class DidIDatabase : RoomDatabase() {
     abstract fun wordDao(): WordDao
     abstract fun questionDao(): QuestionDao
+    abstract fun propositionDao(): PropositionDao
 
     companion object {
         @Volatile
@@ -57,37 +59,52 @@ abstract class DidIDatabase : RoomDatabase() {
                     scope.launch(Dispatchers.IO) {
                         populateDatabase(database.wordDao())
                         populateDatabase(database.questionDao())
+                        populateDatabase(database.propositionDao())
                     }
                 }
             }
         }
 
         suspend fun populateDatabase(wordDao: WordDao) {
-            var word = Word(1, "Door")
+            var word = Word("Door")
             wordDao.insert(word)
 
-            word = Word(2, "Window")
+            word = Word("Window")
             wordDao.insert(word)
 
-            word = Word(3, "Gas")
+            word = Word("Gas")
             wordDao.insert(word)
 
-            word = Word(4, "Clothes")
+            word = Word("Clothes")
             wordDao.insert(word)
         }
 
         suspend fun populateDatabase(questionDao: QuestionDao) {
-            var question = Question(1, "Close")
+            var question = Question("Close")
             questionDao.insert(question)
 
-            question = Question(2, "Open")
+            question = Question("Open")
             questionDao.insert(question)
 
-            question = Question(3, "Lock")
+            question = Question("Lock")
             questionDao.insert(question)
 
-            question = Question(4, "Get inside")
+            question = Question("Get inside")
             questionDao.insert(question)
+        }
+
+        suspend fun populateDatabase(propositionDao: PropositionDao) {
+            var proposition = Proposition("Lock", "Door", false)
+            propositionDao.insert(proposition)
+
+            proposition = Proposition("Close", "Window", false)
+            propositionDao.insert(proposition)
+
+            proposition = Proposition("Close", "Gas", false)
+            propositionDao.insert(proposition)
+
+            proposition = Proposition("Get inside", "Clothes", false)
+            propositionDao.insert(proposition)
         }
     }
 }

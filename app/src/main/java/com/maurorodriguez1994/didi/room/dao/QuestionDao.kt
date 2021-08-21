@@ -14,4 +14,7 @@ interface QuestionDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(question: Question)
+
+    @Query("SELECT COUNT(question_id) FROM question_table")
+    fun getCount(): Flow<Int>
 }

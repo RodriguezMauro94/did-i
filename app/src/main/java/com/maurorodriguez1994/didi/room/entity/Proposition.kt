@@ -6,8 +6,8 @@ import androidx.room.Entity
 @Entity(tableName = "proposition_table", primaryKeys = ["question_id", "word_id"])
 data class Proposition(
     @ColumnInfo(name = "question_id")
-    val questionId: Int,
+    val questionId: String,
     @ColumnInfo(name = "word_id")
-    val wordId: Int,
+    val wordId: String,
     val state: Boolean
 )
