@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface PropositionDao {
-    @Query("SELECT * FROM proposition_table")
+    @Query("SELECT * FROM proposition_table ORDER BY state")
     fun getPropositions(): Flow<List<Proposition>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

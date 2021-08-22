@@ -11,10 +11,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.maurorodriguez1994.didi.room.entity.Word
 
-class MainActivity : AppCompatActivity() {
+class WordListActivity : AppCompatActivity() {
     private val newWordActivityRequestCode = 1
     private val wordViewModel: WordViewModel by viewModels {
-        WordViewModelFactory((application as WordsApplication).repository)
+        WordViewModelFactory((application as DidIApplication).wordRepository)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,16 +28,11 @@ class MainActivity : AppCompatActivity() {
 
         val fab = findViewById<FloatingActionButton>(R.id.fab)
         fab.setOnClickListener {
-            val intent = Intent(this@MainActivity, NewWordActivity::class.java)
+            val intent = Intent(this@WordListActivity, NewWordActivity::class.java)
             startActivityForResult(intent, newWordActivityRequestCode)
         }
 
-
-        // Add an observer on the LiveData returned by getAlphabetizedWords.
-        // The onChanged() method fires when the observed data changes and the activity is
-        // in the foreground.
         wordViewModel.allWords.observe(this) { words ->
-            // Update the cached copy of the words in the adapter.
             words.let { adapter.submitList(it) }
         }
     }

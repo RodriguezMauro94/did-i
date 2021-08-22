@@ -10,5 +10,6 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="buttonLabel">#FFFFFF</color>
-
+    <color name="state_true">#8bc34a</color>
+    <color name="state_false">#F44336</color>
 </resources>

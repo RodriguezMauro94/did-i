@@ -9,5 +9,5 @@ data class Proposition(
     val questionId: String,
     @ColumnInfo(name = "word_id")
     val wordId: String,
-    val state: Boolean
+    var state: Boolean
 )
