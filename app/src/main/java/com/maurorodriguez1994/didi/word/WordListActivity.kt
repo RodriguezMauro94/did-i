@@ -1,4 +1,4 @@
-package com.maurorodriguez1994.didi
+package com.maurorodriguez1994.didi.word
 
 import android.app.Activity
 import android.content.Intent
@@ -9,6 +9,7 @@ import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.maurorodriguez1994.didi.*
 import com.maurorodriguez1994.didi.room.entity.Word
 
 class WordListActivity : AppCompatActivity() {

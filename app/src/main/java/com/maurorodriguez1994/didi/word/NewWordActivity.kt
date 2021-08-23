@@ -1,4 +1,4 @@
-package com.maurorodriguez1994.didi
+package com.maurorodriguez1994.didi.word
 
 import android.app.Activity
 import android.content.Intent
@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Button
 import android.widget.EditText
+import com.maurorodriguez1994.didi.R
 
 class NewWordActivity : AppCompatActivity() {
     public override fun onCreate(savedInstanceState: Bundle?) {

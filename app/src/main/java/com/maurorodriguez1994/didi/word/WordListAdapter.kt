@@ -1,4 +1,4 @@
-package com.maurorodriguez1994.didi
+package com.maurorodriguez1994.didi.word
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.maurorodriguez1994.didi.R
 import com.maurorodriguez1994.didi.room.entity.Word
 
 class WordListAdapter : ListAdapter<Word, WordListAdapter.WordViewHolder>(WordsComparator()) {

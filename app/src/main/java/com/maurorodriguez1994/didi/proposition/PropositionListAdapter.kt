@@ -1,4 +1,4 @@
-package com.maurorodriguez1994.didi
+package com.maurorodriguez1994.didi.proposition
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.maurorodriguez1994.didi.R
 import com.maurorodriguez1994.didi.room.entity.Proposition
 
 class PropositionListAdapter(val event: (Proposition) -> Unit) : ListAdapter<Proposition, PropositionViewHolder>(PropositionComparator()) {

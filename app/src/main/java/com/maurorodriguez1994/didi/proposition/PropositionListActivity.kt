@@ -1,10 +1,12 @@
-package com.maurorodriguez1994.didi
+package com.maurorodriguez1994.didi.proposition
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.maurorodriguez1994.didi.DidIApplication
+import com.maurorodriguez1994.didi.R
 
 class PropositionListActivity : AppCompatActivity() {
     private val propositionViewModel: PropositionViewModel by viewModels {

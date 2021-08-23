@@ -1,4 +1,4 @@
-package com.maurorodriguez1994.didi
+package com.maurorodriguez1994.didi.word
 
 import androidx.lifecycle.*
 import com.maurorodriguez1994.didi.repository.WordRepository
