@@ -9,7 +9,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Rooompractice">
+        android:theme="@style/Theme.DidI">
         <activity android:name=".proposition.PropositionListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
